@@ -1,13 +1,27 @@
 <!DOCTYPE HTML>
 <html>
-
 	<head>
-		<title>Hello world</title>
+		<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+		<meta name="viewport" id="viewport" content="width=device-width,height=device-height,initial-scale=1.0, maximum-sacle=1.0,user-scalable=no;"/>
+
+		<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+			
+			<script type="text/javascript" charset="utf-8">
+				function onBodyLoad()
+				{
+					document.addEventListener("deviceready", onDeviceReady, false);
+				}
+
+				function onDeviceReady()
+				{
+					navigator.notification.alert("Phonegap is ready!");
+				}
+			</script>
 	</head>
 
-	<body>
-		<h1>Hello World</h1>
-		<p>This is a sample Phonegap applications </p>
-	</body>
-
+		<body onload="onBodyLoad()">
+			<h1>Hello World 2</h1>
+			<p>This is a sample PhoneGap Application.</p>
+			<p>Pedro Alvarado Hernández</p>
+		</body>
 </html>
