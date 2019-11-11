@@ -1,27 +1,59 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<meta http-equiv="Content-type" content="text/html;charset=utf-8">
-		<meta name="viewport" id="viewport" content="width=device-width,height=device-height,initial-scale=1.0, maximum-sacle=1.0,user-scalable=no;"/>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=utf-8">
 
-		<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
-			
-			<script type="text/javascript" charset="utf-8">
-				function onBodyLoad()
-				{
-					document.addEventListener("deviceready", onDeviceReady, false);
-				}
+        <meta name="viewport" id="viewport" content="width=device-width,height=device-height,initial-scale=1.0, maximum-sacle=1.0,user-scalable=no;"/>
 
-				function onDeviceReady()
-				{
-					navigator.notification.alert("Phonegap is ready!");
-				}
-			</script>
-	</head>
+        <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+            
+            <script type="text/javascript" charset="utf-8">
 
-		<body onload="onBodyLoad()">
-			<h1>Hello World 2</h1>
-			<p>This is a sample PhoneGap Application.</p>
-			<p>Pedro Alvarado Hernández</p>
-		</body>
+
+                function onBodyLoad()
+                {
+                    document.addEventListener("deviceready", onDeviceReady, false);
+                }
+
+                function onDeviceReady()
+                {
+                }
+
+                    function alertDismissed() 
+                        {}
+
+                    function showAlert() 
+                    {   navigator.notification.alert(
+                        'You are the winner!',  // message
+                        alertDismissed,         // callback
+                        'Game Over',            // title
+                        'Done' );
+                    }
+
+                   function onPrompt(results) 
+                   { alert("You selected button number " + results.buttonIndex + " and entered " + results.input1);
+                   }
+
+                    function showPrompt() 
+                    { navigator.notification.prompt
+                        ('Please enter your name',  // message
+                         onPrompt,                  // callback to invoke
+                        'Registration',            // title
+                        ['Ok','Exit'],             // buttonLabels
+                        'Jane Doe' );
+                    }
+
+            </script>
+    </head>
+
+        <body onload="onBodyLoad()">
+            <h1>Hello World 2</h1>
+            <p>This is a sample PhoneGap Application.</p>
+            <p>Pedro Alvarado Hernández</p>
+
+            <button onclick="showAlert()"> Alert</button>
+            <button onclick="showPrompt(); return false;"> prompt</button>
+
+        </body>
+
 </html>
