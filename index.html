@@ -43,6 +43,28 @@
                         'Jane Doe' );
                     }
 
+                function playBeep() 
+                {
+                    navigator.notification.beep(3);
+                }
+
+                function onConfirm(buttonIndex) 
+                {
+                    alert('You selected button ' + buttonIndex);
+                }
+
+        function showConfirm() 
+        {
+        
+            navigator.notification.confirm
+            (
+                'You are the winner!', // message
+                 onConfirm,            // callback to invoke with index of button pressed
+                'Game Over',           // title
+            [   'Restart','Exit']         // buttonLabels
+            );
+        }
+
             </script>
     </head>
 
@@ -53,7 +75,8 @@
 
             <button onclick="showAlert()"> Alert</button>
             <button onclick="showPrompt(); return false;"> prompt</button>
-
+            <button onclick="showBeep(); return false;"> Beep</button>
+            <button onclick="onConfirm(); return false;">Confirm </button>
         </body>
 
 </html>
